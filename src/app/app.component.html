@@ -1,14 +1,30 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<h2>Bài 1</h2>
-<app-bai1></app-bai1>
-<h2>Bài 2</h2>
-<app-bai2></app-bai2>
-<h2>Bài 3</h2>
-<app-bai3></app-bai3>
-<h2>Phụ lục Demo</h2>
-<app-detail></app-detail>
-<app-products></app-products>
 <app-show></app-show>
+<div class="container">
+    <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link active" [routerLink]="['']">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/bai1']">Bai 1</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/bai2']">Bai 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/bai3']">Bai 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/list-product']">ListProduct</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/list-stusent']">ListStudent</a>
+              </li>
+          </ul>
+<router-outlet></router-outlet>
+</div>
+
+
+
 
 
 

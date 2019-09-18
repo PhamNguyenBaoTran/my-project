@@ -17,8 +17,7 @@
       <table class="table table-bordered">
           <thead>
             <tr>
-              <th scope="col"><p class="card-text"><a href="#" class="btn btn-primary">Hien Image</a> </p></th>
-              <th scope="col">Product</th>
+              <th scope="col"><button type="button" class="btn btn-primary"(click) = 'AnHien()'>Hien Image</button></th>              <th scope="col">Product</th>
               <th scope="col">Code</th>
               <th scope="col">Date</th>
               <th scope="col">Available</th>
@@ -31,7 +30,7 @@
             <tr *ngFor='let a of listproduct'>
               <td scope="col"><img src="assets\{{a.imageUrl}} " width="100px"
                class="ImageProduct" *ngIf='isShow'></td>
-              <td scope="col">{{a.productName}}</td>
+              <th scope="col"><a [routerLink] = "['/detail',a.productId]">{{a.productName}}</a></th>
               <td scope="col">{{a.productCode}}</td>
               <td scope="col">{{a.releaseDate}}</td>
               <td scope="col">{{a.description}}</td>
