@@ -33,9 +33,9 @@
                         <a class="dropdown-item" [routerLink]="['/login']">Đăng nhập</a>
                         <a class="dropdown-item" [routerLink]="['']">Quên mật khẩu</a>
                         <a class="dropdown-item" [routerLink]="['']"><hr></a>
-                        <a class="dropdown-item" [routerLink]="['']">Đăng xuất</a>
+                        <a class="dropdown-item" [routerLink]="['/index']">Đăng xuất</a>
                         <a class="dropdown-item" [routerLink]="['']">Đổi mật khẩu</a>
-                        <a class="dropdown-item" [routerLink]="['']">Cập nhật tài khoản</a>
+                        <a class="dropdown-item" [routerLink]="['/update']">Cập nhật tài khoản</a>
                         </div>
                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -80,18 +80,20 @@
             <form>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username"
+                        [(ngModel)]="taikhoan" [ngModelOptions]="{standalone:true}">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                        [(ngModel)]="matkhau" [ngModelOptions]="{standalone:true}">
                     </div>
                     <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Save your password</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Đăng nhập</button> 
+                    <button type="submit"(click)='dangnhap()' class="btn btn-primary">Đăng nhập</button> 
                     &nbsp;<br>
                     <p>&nbsp;<br>Chưa có tài khoản? &nbsp;<a [routerLink]="['/register']">Đăng ký</a></p>
                     </form>

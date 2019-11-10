@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" [routerLink]="['']">  Trang chủ <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" [routerLink]="['']"> Trang chủ <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/introduce']"> Giới thiệu</a>
@@ -37,141 +37,80 @@
                         <a class="dropdown-item" [routerLink]="['']">Đổi mật khẩu</a>
                         <a class="dropdown-item" [routerLink]="['']">Cập nhật tài khoản</a>
                         </div>
-                   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times; </span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Tài khoản</label>
-                                        <input type="text" class="form-control" id="recipient-name" placeholder="email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message-text" class="col-form-label">Mật khẩu</label>
-                                        <input type="text" class="form-control" id="recipient-name" placeholder="password">
-                                    </div>
-                                    <button type="button" class="btn-dark btn-lg"><a href="Object.html">Đăng nhập</a></button>
-                                </form>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button> Trợ giúp <a href="#">help?</a>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                    
-                </div>
         </div>
     </nav>
 </div>
 <br>
 <div class="row">
-<div class="col-lg-8">
-          <div class="card">
-                <div class="card-header">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
                 <h3>Đăng ký</h3>
-                </div>
-                <div class="card-body">
-            <form>
+            </div>
+            <div class="card-body">
+                <form>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Họ tên</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Fullname">
+                        <label for="exampleInputEmail1">Fullname: </label>
+                        <input type="email" class="form-control" [(ngModel)]="formStudent.fullname" [ngModelOptions]="{standalone:true}">
                     </div>
-                    <label for="exampleInputPassword1">Ngày sinh</label><br>
-                    <div class="row"> 
-                            <div class="col-xs-4 col-md-4">
-                                <select class="form-control">              
-                                    <option value="Day">Ngày</option>  
-                                    <option value="Day">2</option>            
-                                    <option value="Day">3</option>            
-                                    <option value="Day">4</option>            
-                                    <option value="Day">5</option>            
-                                    <option value="Day">6</option>            
-                                    <option value="Day">7</option>            
-                                    <option value="Day">8</option>            
-                                    <option value="Day">9</option>            
-                                    <option value="Day">10</option>            
-                                    <option value="Day">11</option>            
-                                    <option value="Day">12</option>            
-                                    <option value="Day">13</option>  
-                                    <option value="Day">14</option>            
-                                    <option value="Day">15</option>                      
-                                </select> 
-                            </div> 
-                            <div class="col-xs-4 col-md-4"> 
-                                <select class="form-control">              
-                                    <option value="Month">Tháng</option>   
-                                    <option value="Month">1</option>            
-                                    <option value="Month">2</option>            
-                                    <option value="Month">3</option>            
-                                    <option value="Month">4</option>            
-                                    <option value="Month">5</option>            
-                                    <option value="Month">6</option>            
-                                    <option value="Month">7</option>            
-                                    <option value="Month">8</option>            
-                                    <option value="Month">9</option>            
-                                    <option value="Month">10</option>            
-                                    <option value="Month">11</option>            
-                                    <option value="Month">12</option>            
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Username: </label>
+                      <input type="email" class="form-control" [(ngModel)]="name" [ngModelOptions]="{standalone:true}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address: </label>
+                        <input type="email" class="form-control" [(ngModel)]="formStudent.email" [ngModelOptions]="{standalone:true}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" [(ngModel)]="pass" [ngModelOptions]="{standalone:true}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Repassword</label>
+                        <input type="password" class="form-control" [(ngModel)]="repass" [ngModelOptions]="{standalone:true}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Birthday: </label>
+                        <input type="date" class="form-control" [(ngModel)]="formStudent.birthday" [ngModelOptions]="{standalone:true}">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputState">Gender</label>
+                        <select id="inputState" class="form-control"[(ngModel)]="formStudent.gender" [ngModelOptions]="{standalone:true}">
+                            <option selected>Nam</option>
+                            <option selected>Nu</option>
+                        </select>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)='dangky()'>
+                        Đăng ký
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            ...
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"  (click)='addUser()' [routerLink]="['/login']">Tiep tuc</button>                            </div>
+                        </div>
+                        </div>
+                    </div>
 
-                                </select> 
-                            </div> 
-                            <div class="col-xs-4 col-md-4"> 
-                                <select class="form-control"> 
-                                    <option value="Year">Năm</option>                         
-                                    <option value="Year">2019</option>    
-                                    <option value="Year">2018</option>            
-                                    <option value="Year">2017</option>            
-                                    <option value="Year">...</option>            
-                                    <option value="Year">1997</option>            
-                                    <option value="Year">1996</option>            
-                                    <option value="Year">1995</option>            
-                                    <option value="Year">...</option>            
-                                    <option value="Year">1984</option>            
-                                    <option value="Year">1983</option>            
-                                    <option value="Year">1982</option>            
-                                </select> 
-                            </div> 
-                           </div> <br>
-                           <label for="exampleInputPassword1">Giới tính</label><br>
-                               <label class="radio-inline">          
-                               <input name="sex" id="inlineCheckbox1" value="male" type="radio">Nam </label>&nbsp; 
-                               <label class="radio-inline">   
-                               <input name="sex" id="inlineCheckbox2" value="female" type="radio">Nữ </label> 
-                           <br>  
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Tên đăng nhập</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Username">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Nhập lại Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter the Password">
-                    </div>
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Tôi đồng ý điều khoản</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Đăng ký</button>
-                    </form>
-                </div>
-              </div>
-</div>
-<div class="col-lg-4">
-    <ul class="list-group">
+                  </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <ul class="list-group">
             <li class="list-group-item">
                 <i class='fas fa-list' style='font-size:25px'> <a [routerLink]="['/object']"> Danh mục môn học </a></i>         
             </li>
@@ -187,8 +126,8 @@
             <li class="list-group-item"><a [routerLink]="['/test']">Thiết kế giao diện trên Android</a></li>
             <li class="list-group-item"><a [routerLink]="['/test']">Thiết kế web cho điện thoại di động</a></li>
             <li class="list-group-item"><a [routerLink]="['/test']">Lập trình ASP.NET</a></li>
-    </ul>
-</div>
+        </ul>
+    </div>
 </div>
 <div class="alert alert-danger" role="alert">
     <ul class="nav justify-content-center">
@@ -210,5 +149,3 @@
        <i class='fab fa-facebook' style='font-size:36px'></i> &nbsp;
        <i class='fab fa-twitter-square' style='font-size:36px'></i>
  </div>
-
-

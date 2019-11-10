@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -28,6 +30,8 @@ import { UpdateComponent } from './update/update.component';
   imports: [
     BrowserModule,
     NgxPaginationModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([ 
       { path: '', 	component: IndexComponent }, 
       {path: 'contact', component:ContactComponent},
@@ -36,7 +40,7 @@ import { UpdateComponent } from './update/update.component';
       {path: 'object', component:ObjectComponent},
       {path: 'register', component:RegisterComponent},
       {path: 'update', component:UpdateComponent},
-      {path: 'object.id', component:TestComponent},
+      {path: 'object/:Id', component:TestComponent},
       { path: '**', redirectTo: 'index', pathMatch: 'full' },
   ])
 ],
