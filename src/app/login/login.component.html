@@ -33,10 +33,38 @@
                         <a class="dropdown-item" [routerLink]="['/login']">Đăng nhập</a>
                         <a class="dropdown-item" [routerLink]="['']">Quên mật khẩu</a>
                         <a class="dropdown-item" [routerLink]="['']"><hr></a>
-                        <a class="dropdown-item" [routerLink]="['/index']" (click) = 'dangxuat()'>Đăng xuất</a>
+                        <a class="dropdown-item" [routerLink]="['/index']">Đăng xuất</a>
                         <a class="dropdown-item" [routerLink]="['']">Đổi mật khẩu</a>
                         <a class="dropdown-item" [routerLink]="['/update']">Cập nhật tài khoản</a>
                         </div>
+                   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times; </span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Tài khoản</label>
+                                        <input type="text" class="form-control" id="recipient-name" placeholder="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Mật khẩu</label>
+                                        <input type="text" class="form-control" id="recipient-name" placeholder="password">
+                                    </div>
+                                    <button type="button" class="btn-dark btn-lg"><a href="Object.html">Đăng nhập</a></button>
+                                </form>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button> Trợ giúp <a href="#">help?</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
         </div>
     </nav>
@@ -46,58 +74,28 @@
 <div class="col-lg-8">
           <div class="card">
                 <div class="card-header">
-                <h3>Hồ sơ sinh viên</h3>
+                <h3>Đăng nhập</h3>
                 </div>
                 <div class="card-body">
             <form>
                     <div class="form-group">
-                        <label for="exampleInputPassword1">Họ tên</label>
-                        <input type="text" class="form-control" [(ngModel)]="Student.fullname" [ngModelOptions]="{standalone: true}" disabled *ngIf = "showfullname">
-                <input type="text" class="form-control" [(ngModel)]="Student.fullname" [ngModelOptions]="{standalone: true}" *ngIf = "!showfullname">
-                <div class="input-group-append myButton" id="button-addon4">
-                    <button class="btn btn-outline-secondary" type="button" *ngIf = "showfullnamebutton" (click) = 'refullnamebutton()'><i class="fa fa-edit"></i></button>
-                    <button class="btn btn-outline-secondary" type="button" *ngIf = "!showfullnamebutton" (click) = 'refullname()'><i class='fas fa-check'></i></button>
-                </div>
+                        <label for="exampleInputEmail1">Username</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username"
+                        [(ngModel)]="taikhoan" [ngModelOptions]="{standalone:true}">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
                     </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Birthday: </label>
-                            <input type="date" class="form-control" [(ngModel)]="Student.birthday" [ngModelOptions]="{standalone: true}" disabled *ngIf = "showbirthday">
-                <input type="date" class="form-control" [(ngModel)]="Student.birthday" [ngModelOptions]="{standalone: true}" *ngIf = "!showbirthday">
-                <div class="input-group-append myButton" id="button-addon4">
-                    <button class="btn btn-outline-secondary" type="button" *ngIf = "showbirthdaybutton" (click) = 'rebirthdaybutton()'><i class="fa fa-edit"></i></button>
-                    <button class="btn btn-outline-secondary" type="button" *ngIf = "!showbirthdaybutton" (click) = 'rebirthday()'><i class='fas fa-check' ></i></button>
-                </div>
-                        </div> 
-                           <br>  
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" [(ngModel)]="Student.email" [ngModelOptions]="{standalone: true}" disabled *ngIf = "showemail">
-                <input type="email" class="form-control" [(ngModel)]="Student.email" [ngModelOptions]="{standalone: true}" *ngIf = "!showemail">
-                <div class="input-group-append myButton" id="button-addon4">
-                    <button class="btn btn-outline-secondary" type="button" *ngIf = "showemailbutton" (click) = 'reemailbutton()'><i class="fa fa-edit"></i></button>
-                    <button class="btn btn-outline-secondary" type="button" *ngIf = "!showemailbutton" (click) = 'reemail()'><i class='fas fa-check' ></i></button>
-                </div>
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"
+                        [(ngModel)]="matkhau" [ngModelOptions]="{standalone:true}">
                     </div>
-                    <div class="gioitinh">
-                        <label for="">Giới tính</label> 
-                        <select class="form-control" [(ngModel)]="Student.gender" [ngModelOptions]="{standalone: true}" disabled *ngIf = "showgender">           
-                            <option value="true">Nam</option>
-                            <option value="false">Nữ</option>
-                            <option value="none">Không xác định</option>
-                        </select> 
-                        <select class="form-control" [(ngModel)]="Student.gender" [ngModelOptions]="{standalone: true}" *ngIf = "!showgender">           
-                            <option value="true">Nam</option>
-                            <option value="false">Nữ</option>
-                            <option value="none">Không xác định</option>
-                        </select> 
-                        <div class="input-group-append myButton" id="button-addon4">
-                            <button class="btn btn-outline-secondary" type="button" *ngIf = "showgenderbutton" (click) = 'regenderbutton()'><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-outline-secondary" type="button" *ngIf = "!showgenderbutton" (click) = 'regender()'><i class='fas fa-check' ></i></button>
-                        </div>
-                    </div> 
-                    <div class="alert alert-primary hocphi">
-                        Học phí: {{Student.schoolfee}}
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Save your password</label>
                     </div>
+                    <button type="submit"(click)='dangnhap()' class="btn btn-primary">Đăng nhập</button> 
+                    &nbsp;<br>
+                    <p>&nbsp;<br>Chưa có tài khoản? &nbsp;<a [routerLink]="['/register']">Đăng ký</a></p>
                     </form>
                 </div>
               </div>
@@ -142,5 +140,4 @@
        <i class='fab fa-facebook' style='font-size:36px'></i> &nbsp;
        <i class='fab fa-twitter-square' style='font-size:36px'></i>
  </div>
-
 
