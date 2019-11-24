@@ -9,7 +9,7 @@ import { HttpClient} from '@angular/common/http';
 export class ObjectComponent implements OnInit {
   url='./assets/db/Subjects.json';
   danhmucmonhoc: any;
-  Student = JSON.parse(localStorage.getItem('students'));
+  Student = JSON.parse(localStorage.getItem('student'));
 
   constructor(private http:HttpClient) { }
   lastpage;
