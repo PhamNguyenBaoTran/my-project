@@ -7,15 +7,15 @@ import {HttpClient} from '@angular/common/http';
 })
 export class XemlaibaithiComponent implements OnInit {
 
+  url='./assets/db/subjects.json';
+  danhmucmonhoc: any;
   Quiz: any;
   Id;
   pagesize = 1;
   pagecurrent = 1;
-  mark = 0;
   totlepage;
   name : String = 'name';
   urlquiz;
-  lastpage;
   showfirth = true;
   showbegin = true;
   showlast = true;
@@ -25,10 +25,10 @@ export class XemlaibaithiComponent implements OnInit {
     "IdSubject": "",
     Ans: [],
   }
-   Student = JSON.parse(localStorage.getItem('student'));
+  Student = JSON.parse(localStorage.getItem('student'));
   list = JSON.parse(localStorage.getItem('list'));
+  mark = 0;
   show = false;
-
 
   constructor(private http:HttpClient) { }
   
@@ -37,6 +37,9 @@ export class XemlaibaithiComponent implements OnInit {
   }
   getAllQuiz () {
     return this.http.get(this.urlquiz);
+  }
+  getAll () {
+    return this.http.get(this.url);
   }
 
   next() {
@@ -50,6 +53,7 @@ export class XemlaibaithiComponent implements OnInit {
       this.showend = false;
       this.showfinish = true;
     }
+    this.tinhdiem();
   }
 
   previrous() {
@@ -63,6 +67,7 @@ export class XemlaibaithiComponent implements OnInit {
       this.showbegin = false;
       this.showfirth = false;
     }
+    this.tinhdiem();
   }
 
   home() {
@@ -72,6 +77,7 @@ export class XemlaibaithiComponent implements OnInit {
     this.showend = true;
     this.showlast = true;
     this.showfinish = false;
+    this.tinhdiem();
   }
 
   end() {
@@ -81,30 +87,16 @@ export class XemlaibaithiComponent implements OnInit {
     this.showfirth = true;
     this.showbegin = true;
     this.showfinish = true;
+    this.tinhdiem();
   }
   
   counttotlepage() {
     return Math.ceil(this.Quiz.length/this.pagesize);
   }
-   thi() {
-    this.Id = this.task.IdSubject;
-    this.urlquiz = './assets/db/Quizs/' + this.Id + '.json';
-    this.getAllQuiz().subscribe (data=>{
-      this.Quiz=data;
-      this.totlepage = this.counttotlepage();
-      if(this.pagecurrent === 1) {
-        this.showbegin = false;
-        this.showfirth = false;
-      }
-      if(this.pagecurrent === this.totlepage) {
-        this.showend = false;
-        this.showlast = false;
-      }
-    });
-  }
+
   tinhdiem() {
     this.mark = 0;
-    for(var i = 0; i < this.lastpage; i++) {
+    for(var i = 0; i < this.totlepage; i++) {
       if(this.Quiz[i].AnswerId ===  Number(this.task.Ans[i])) {
         this.mark += this.Quiz[i].Marks;
       }
@@ -124,8 +116,24 @@ export class XemlaibaithiComponent implements OnInit {
       localStorage.setItem('task', JSON.stringify(this.task));
       this.show = true;
    }
-  dangxuat() {
-    this.Student = null;
-    localStorage.setItem('student', JSON.stringify(this.Student));
+   thi() {
+    this.Id = location.href;
+    this.Id = this.Id.slice(this.Id.length - 4, this.Id.length);
+    this.urlquiz = './assets/db/Quizs/' + this.Id + '.json';
+    this.getAllQuiz().subscribe (data=>{
+      this.Quiz=data;
+      this.totlepage = this.counttotlepage();
+      if(this.pagecurrent === 1) {
+        this.showbegin = false;
+        this.showfirth = false;
+      }
+      if(this.pagecurrent === this.totlepage) {
+        this.showend = false;
+        this.showlast = false;
+      }
+      this.getAll().subscribe (data=>{
+        this.danhmucmonhoc=data;
+      });
+    });
   }
 }
