@@ -116,6 +116,10 @@ export class TestComponent implements OnInit {
       localStorage.setItem('task', JSON.stringify(this.task));
       this.show = true;
    }
+   dangxuat() {
+    this.Student = null;
+    localStorage.setItem('student', JSON.stringify(this.Student));
+  }
    thi() {
     this.Id = location.href;
     this.Id = this.Id.slice(this.Id.length - 4, this.Id.length);

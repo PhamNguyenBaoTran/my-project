@@ -34,7 +34,7 @@
                         <a class="dropdown-item" [routerLink]="['']">Quên mật khẩu</a>
                         <a class="dropdown-item" [routerLink]="['']"><hr></a>
                         <a class="dropdown-item" [routerLink]="['/index']" (click) = 'dangxuat()'>Đăng xuất</a>
-                        <a class="dropdown-item" [routerLink]="['']">Đổi mật khẩu</a>
+                        <a class="dropdown-item" [routerLink]="['/repass']">Đổi mật khẩu</a>
                         <a class="dropdown-item" [routerLink]="['/update']">Cập nhật tài khoản</a>
                         </div>
                 </div>
@@ -95,6 +95,7 @@
                             <button class="btn btn-outline-secondary" type="button" *ngIf = "!showgenderbutton" (click) = 'regender()'><i class='fas fa-check' ></i></button>
                         </div>
                     </div> 
+                    <br>
                     <div class="alert alert-primary hocphi">
                         Học phí: {{Student.schoolfee}}
                     </div>

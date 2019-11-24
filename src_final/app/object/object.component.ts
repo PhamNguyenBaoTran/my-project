@@ -14,7 +14,7 @@ export class ObjectComponent implements OnInit {
   constructor(private http:HttpClient) { }
   lastpage;
   page =1;
-rowonpage=4;
+rowonpage=6;
 
   ngOnInit() {
     this.getAll().subscribe (data=>{
@@ -47,6 +47,6 @@ rowonpage=4;
   }
   dangxuat() {
     this.Student = null;
-    localStorage.setItem('user', JSON.stringify(this.Student));
+    localStorage.setItem('student', JSON.stringify(this.Student));
   }
 }

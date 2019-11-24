@@ -14,6 +14,8 @@ import { RegisterComponent } from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
 import { TestComponent } from './test/test.component';
 import { UpdateComponent } from './update/update.component';
+import { RepassComponent } from './repass/repass.component';
+import { XemlaibaithiComponent } from './xemlaibaithi/xemlaibaithi.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { UpdateComponent } from './update/update.component';
     ContactComponent,
     TestComponent,
     UpdateComponent,
+    XemlaibaithiComponent,
+    RepassComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,11 +44,13 @@ import { UpdateComponent } from './update/update.component';
       {path: 'object', component:ObjectComponent},
       {path: 'register', component:RegisterComponent},
       {path: 'update', component:UpdateComponent},
+      {path: 'repass', component:RepassComponent},
       {path: 'object/:Id', component:TestComponent},
+      {path:'xembaithi', component:XemlaibaithiComponent},
       { path: '**', redirectTo: 'index', pathMatch: 'full' },
   ])
 ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent]  
 })
 export class AppModule { }

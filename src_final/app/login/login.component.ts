@@ -27,4 +27,5 @@ export class LoginComponent implements OnInit {
      }
      alert('Sai ten tai khoan hoac mat khau');
   }
+  
 }  

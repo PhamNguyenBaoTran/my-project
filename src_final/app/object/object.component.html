@@ -33,9 +33,9 @@
                         <a class="dropdown-item" [routerLink]="['/login']">Đăng nhập</a>
                         <a class="dropdown-item" [routerLink]="['']">Quên mật khẩu</a>
                         <a class="dropdown-item" [routerLink]="['']"><hr></a>
-                        <a class="dropdown-item" [routerLink]="['']">Đăng xuất</a>
-                        <a class="dropdown-item" [routerLink]="['']">Đổi mật khẩu</a>
-                        <a class="dropdown-item" [routerLink]="['']">Cập nhật tài khoản</a>
+                        <a class="dropdown-item" [routerLink]="['/index']" (click) = 'dangxuat()'>Đăng xuất</a>
+                        <a class="dropdown-item" [routerLink]="['/repass']">Đổi mật khẩu</a>
+                        <a class="dropdown-item" [routerLink]="['/update']">Cập nhật tài khoản</a>
                     </div>
                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -95,22 +95,9 @@
     </div>
 </div>
 <div class="col-lg-4">
-    <ul class="list-group">
-            <li class="list-group-item">
-                <i class='fas fa-list' style='font-size:25px'> <a [routerLink]="['/object']"> Danh mục môn học </a></i>         
-            </li>
-            <li class="list-group-item"><a [routerLink]="['/test']">Lập trình Android nâng cao</a></li>
-            <li class="list-group-item"><a [routerLink]="['/test']">Xây dựng trang Web</a></li>
-            <li class="list-group-item"><a [routerLink]="['/test']">SQL Server</a></li>
-            <li class="list-group-item"><a [routerLink]="['/test']">Internet Maketing</a></li>
-            <li class="list-group-item"><a [routerLink]="['/test']">Lập trình hướng đối tượng với Java</a></li>
-            <li class="list-group-item"><a [routerLink]="['/test']">Lập trình PHP</a></li>
-            <li class="list-group-item"><a [routerLink]="['/test']">Điện toán đám mây</a></li>
-            <li class="list-group-item"><a [routerLink]="['/test']">Lập trình Android cơ bản</a></li>
-            <li class="list-group-item"><a [routerLink]="['/test']">Lập trình game 2D</a></li>
-            <li class="list-group-item"><a [routerLink]="['/test']">Thiết kế giao diện trên Android</a></li>
-            <li class="list-group-item"><a [routerLink]="['/test']">Thiết kế web cho điện thoại di động</a></li>
-            <li class="list-group-item"><a [routerLink]="['/test']">Lập trình ASP.NET</a></li>
+    <li class="list-group-item "><i class='fas fa-th-large'></i>Danh mục môn học</li>
+    <ul class="list-group" *ngFor = "let i of danhmucmonhoc">
+        <a [routerLink]="['/danhmucmonhoc', i.Id]"><li class="list-group-item">{{i.Name}}</li></a>
     </ul>
 </div>
 </div>

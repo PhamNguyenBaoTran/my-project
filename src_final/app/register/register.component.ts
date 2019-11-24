@@ -53,6 +53,7 @@ export class RegisterComponent implements OnInit {
       alert('Mat khai phai tu 8 ki tu tro len.')
     }
   }
+  
   addUser() {
     this.list.push(this.formStudent);
     localStorage.setItem('list',JSON.stringify(this.list));
