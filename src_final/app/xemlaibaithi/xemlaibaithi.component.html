@@ -80,7 +80,7 @@
                 <div class="card-body text-success myCardBody" *ngFor="let i of Quiz | paginate: {itemsPerPage: pagesize, currentPage: pagecurrent}">
                     <p>Câu {{pagecurrent}}: {{i.Text}}</p>
                     <div class="form-check" *ngFor = 'let j of i.Answers'>
-                        <input class="form-check-input" type="radio" name="vote" (click) = 'addvote(j.Id)'>
+                        <input class="form-check-input" type="radio" name="vote" (click) = 'tinhdiem(j.Id)'>
                         <label class="form-check-label" for="exampleRadios1">
                             {{j.Text}}
                         </label>

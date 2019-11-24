@@ -21,8 +21,11 @@ export class XemlaibaithiComponent implements OnInit {
   showlast = true;
   showend = true;
   showfinish = false;
-  task = JSON.parse(localStorage.getItem('task'));
-  Student = JSON.parse(localStorage.getItem('student'));
+  task = {
+    "IdSubject": "",
+    Ans: [],
+  }
+   Student = JSON.parse(localStorage.getItem('student'));
   list = JSON.parse(localStorage.getItem('list'));
   show = false;
 
